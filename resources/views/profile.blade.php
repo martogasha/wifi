@@ -5,7 +5,7 @@
 <!-- Mirrored from html.designstream.co.in/pick/html/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 01 Nov 2022 07:28:44 GMT -->
 <head>
     <meta charset="UTF-8">
-    <title>{{\Illuminate\Support\Facades\Auth::user()->first_name}}</title>
+    <title>{{\Illuminate\Support\Facades\Auth::user()->first_name}} Dashboard</title>
     <link rel="shortcut icon" href="dist/images/favicon.ico" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
 

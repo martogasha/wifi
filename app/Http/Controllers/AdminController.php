@@ -45,6 +45,35 @@ class AdminController extends Controller
             'accessToken' => $accessToken,
         ]);
     }
+    public function subscribe(){
+        $options = [
+            'clientId' => 'J6IUCHendZ4SbNEAF6WWJZIFcKR2LCmy5hmrlkIVHcU',
+            'clientSecret' => 'IDbzppyG-fXTgClVemBnh2irjcfUG_s8E4AD3xELMO4',
+            'apiKey' => 'a3ee4134cc102a400aef96c3c9d1a635829f54d2',
+            'baseUrl' => 'https://api.kopokopo.com'
+        ];
+        $K2 = new K2($options);
+        $tokens = $K2->TokenService();
+        $result = $tokens->getToken();
+        $access = $result['data'];
+        $accessToken = $access['accessToken'];
+        $webhooks = $K2->Webhooks();
+        $response = $webhooks->subscribe([
+            'eventType' => 'buygoods_transaction_received',
+            'url' => 'https://wifi.davixdesign.co.ke/storeWebhooks',
+            'scope' => 'till',
+            'scopeReference' => '000798',
+            'accessToken' => $accessToken,
+        ]);
+        $location = $response['location'];
+        $stk = $K2->StkService();
+        $options = [
+            'location' => $location,
+            'accessToken' => $accessToken,
+        ];
+        $response = $stk->getStatus($options);
+        dd($response);
+    }
     public function confirm(Request $request){
         $user = User::find($request->id);
         return response($user);
