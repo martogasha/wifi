@@ -74,6 +74,15 @@ class AdminController extends Controller
         $response = $stk->getStatus($options);
         dd($response);
     }
+    public function authenticate(){
+        global $K2;
+        global $response;
+        $webhooks = $K2->Webhooks();
+
+        $json_str = file_get_contents('https://wifi.davixdesign.co.ke/storeWebhooks');
+        $response = $webhooks->webhookHandler($json_str, $_SERVER['a419432d-284a-4688-9535-bcf7314c3639']);
+        dd($response);
+    }
     public function confirm(Request $request){
         $user = User::find($request->id);
         return response($user);
