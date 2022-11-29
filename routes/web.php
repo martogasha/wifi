@@ -31,6 +31,7 @@ Route::get('payOne', [AdminController::class, 'payOne']);
 Route::get('confirm', [AdminController::class, 'confirm']);
 Route::get('mpesaTest', [AdminController::class, 'mpesaTest']);
 Route::get('subscribe', [AdminController::class, 'subscribe']);
+Route::get('authenticate', [AdminController::class, 'authenticate']);
 
 
 Auth::routes();
