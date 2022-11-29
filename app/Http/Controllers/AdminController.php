@@ -41,7 +41,7 @@ class AdminController extends Controller
             'phoneNumber' => $request->userPhone,
             'amount' => $request->userAmount,
             'email' => $request->userEmail,
-            'callbackUrl' => 'https://iconztech.com/api/storeWebhooks',
+            'callbackUrl' => 'https://wifi.davixdesign.co.ke/storeWebhooks',
             'accessToken' => $accessToken,
         ]);
     }
