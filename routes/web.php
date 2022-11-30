@@ -30,14 +30,12 @@ Route::get('invoice', [AdminController::class, 'invoice']);
 Route::get('payOne', [AdminController::class, 'payOne']);
 Route::get('confirm', [AdminController::class, 'confirm']);
 Route::get('mpesaTest', [AdminController::class, 'mpesaTest']);
-Route::get('subscribe', [AdminController::class, 'subscribe']);
-Route::get('authenticate', [AdminController::class, 'authenticate']);
+
 
 
 Auth::routes();
 Route::get('Register', [AuthController::class, 'Register']);
 Route::post('Login', [AuthController::class, 'Login']);
 Route::post('editUser', [AuthController::class, 'editUser']);
-Route::post('storeWebhooks', [AdminController::class, 'storeWebhooks']);
 
 Route::get('/home', 'HomeController@index')->name('home');

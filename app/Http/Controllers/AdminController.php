@@ -41,7 +41,7 @@ class AdminController extends Controller
             'phoneNumber' => $request->userPhone,
             'amount' => $request->userAmount,
             'email' => $request->userEmail,
-            'callbackUrl' => 'https://wifi.davixdesign.co.ke/storeWebhooks',
+            'callbackUrl' => 'https://wifi.davixdesign.co.ke/api/storeWebhooks',
             'accessToken' => $accessToken,
         ]);
     }
@@ -60,7 +60,7 @@ class AdminController extends Controller
         $webhooks = $K2->Webhooks();
         $response = $webhooks->subscribe([
             'eventType' => 'buygoods_transaction_received',
-            'url' => 'https://wifi.davixdesign.co.ke/storeWebhooks',
+            'url' => 'https://wifi.davixdesign.co.ke/api/storeWebhooks',
             'scope' => 'till',
             'scopeReference' => '000798',
             'accessToken' => $accessToken,
@@ -79,7 +79,7 @@ class AdminController extends Controller
         global $response;
         $webhooks = $K2->Webhooks();
 
-        $json_str = file_get_contents('https://wifi.davixdesign.co.ke/storeWebhooks');
+        $json_str = file_get_contents('https://wifi.davixdesign.co.ke/api/storeWebhooks');
         $response = $webhooks->webhookHandler($json_str, $_SERVER['a419432d-284a-4688-9535-bcf7314c3639']);
         dd($response);
     }
