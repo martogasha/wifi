@@ -93,7 +93,7 @@ class AdminController extends Controller
         $dub = array($duplicate);
         $input = array_unique($dub);
         $dateFormat = $input[0]['data']['attributes']['event']['resource']['origination_time'];
-        $user = User::where('user_phone',$input[0]['data']['attributes']['event']['resource']['sender_phone_number'])->first();
+        $user = User::where('phone',$input[0]['data']['attributes']['event']['resource']['sender_phone_number'])->first();
         $store = Mpesa::create([
             'senderFirstName' => $input[0]['data']['attributes']['event']['resource']['sender_first_name'],
             'senderMiddleName' => $input[0]['data']['attributes']['event']['resource']['sender_middle_name'],
