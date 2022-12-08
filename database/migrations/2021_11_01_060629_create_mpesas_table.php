@@ -15,7 +15,7 @@ class CreateMpesasTable extends Migration
     {
         Schema::create('mpesas', function (Blueprint $table) {
             $table->id();
-            $table->string('senderFirstName');
+            $table->string('senderFirstName')->nullable();
             $table->string('senderMiddleName');
             $table->string('senderLastName');
             $table->string('reference')->unique();
